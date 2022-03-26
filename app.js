@@ -44,19 +44,16 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-// app.post("/deleteItem", function (req, res) {
-//   let item = req.body.list;
-
-//   if (req.body.list === "Work List") {
-//     workItems.splice(workItems.indexOf(item), 1);
-
-//     res.redirect("/work");
-//   } else {
-//     items.splice(items.indexOf(item), 1);
-
-//     res.redirect("/");
-//   }
-// });
+ app.post("/deleteItem", function (req, res) {
+   let item = req.body.list;
+   if (req.body.list === "Work List") {
+     workItems.splice(workItems.indexOf(item), 1);
+     res.redirect("/work");
+   } else {
+     items.splice(items.indexOf(item), 1);
+     res.redirect("/");
+   }
+ });
 
 app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");
